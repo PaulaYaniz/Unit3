@@ -16,3 +16,13 @@ For bad adjectives, encrypted. New TOP SECRET password that you cannot change. I
 
 
 Delete, add, edit notes options.
+
+
+Success criteria:
+1. There is a secure registration and login system.
+2. There is an option to reset forgotten password.
+3. The application contains a main page with a box asking what is her mood today, to which she can only answer with one adjective.
+4. After answering the adjective, costumer will be able to write notes.
+5. The notes will be grouped in folders by the adjectives.
+6. Negative adjectives notes will be encrypted, and password cannot be changed.
+7. The application will allow to delete, add and edit notes.
