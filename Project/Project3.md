@@ -1,8 +1,18 @@
+# Project 3: A mood-tracker application for Yasmina
+![image](https://user-images.githubusercontent.com/89135778/220579524-79062314-865f-4003-af22-dac634d9b7a0.png)
 
-My client is Yasmina
+## Criteria A: Planning
+### Problem definition
+Yasmina is a student at UWC ISAK Japan. Every Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings evert day, and then to have a way to organize the writings by category, according to what she is talking about.
+
+### Proposed solution
+
+#### Design statement
+I will design and make an application that checks temperature and humidity for two clients who are roommates and students at UWC ISAK Japan. The program will consist on a tool called DHT11 sensor for being able to keep track of humidity and temperature of their rooms, plus getting useful measures such as mean, standard deviaton, minimum, maximum, and median. It is constructed using the softwares Python, Arduino, and DHT11. It will take 3 weeks to make and will be evaluated according to the criteria A, B, and C.
+
 
 ### First meeting - 10th February 2023
-My client and me reunited in a 10-minute meeting 
+My client and me reunited in a 10-minute meeting.
 She wants a mood tracker app. 
 Log in and register
 Memory problems, so reset forgotten password option
@@ -13,7 +23,6 @@ You can only answer with one word: Sad, happy, depressed, anxious, excited. List
 Notes screen. Every adjective has a different folder in which she writes. She writes in the page she has the feeling.
 
 For bad adjectives, encrypted. New TOP SECRET password that you cannot change. It only has a password hint.
-
 
 Delete, add, edit notes options.
 
@@ -28,8 +37,19 @@ Delete, add, edit notes options.
 7. The application will allow to delete, add and edit notes.
 
 
+
 ### Things to be done:
 - Wireframe diagram
 - Database ER diagram
 - RoT up to date
 - some code
+
+
+## Record of Tasks
+**Task No**|**Planned Action**|**Planned Outcome**|**Time estimate**|**Target completion date**|**Criterion**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+1|First meeting with client|Client described her requiremetns for the project|10min|Feb 10|A
+2|Second meeting with client|Write Success Criteria and Client gives her agreeing|10min|Feb 20|A
+3|Write the problem context|Problem definition|10min|Feb 20|A
+4|Write proposed solution|Have a better understanding of what I have to do and write design statement|15min|Feb 22|A
+
