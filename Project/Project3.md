@@ -36,6 +36,7 @@ Delete, add, edit notes options.
 6. Negative adjectives notes will be encrypted, and password cannot be changed.
 7. The application will allow to delete, add and edit notes.
 
+![image](https://user-images.githubusercontent.com/89135778/220805673-657a1824-1ded-4267-ae6a-34af9c249100.png)
 
 
 ### Things to be done:
