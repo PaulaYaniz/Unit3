@@ -8,7 +8,7 @@ Yasmina is a student at UWC ISAK Japan. Every Monday morning at her advisory, sh
 ### Proposed solution
 
 #### Design statement
-I will design and make an application that checks temperature and humidity for two clients who are roommates and students at UWC ISAK Japan. The program will consist on a tool called DHT11 sensor for being able to keep track of humidity and temperature of their rooms, plus getting useful measures such as mean, standard deviaton, minimum, maximum, and median. It is constructed using the softwares Python, Arduino, and DHT11. It will take 3 weeks to make and will be evaluated according to the criteria A, B, and C.
+I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on a tool called ___ for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python and __ . It will take 3 weeks to make and will be evaluated according to the criteria A, B, and C.
 
 
 ### First meeting - 10th February 2023
