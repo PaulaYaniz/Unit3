@@ -3,12 +3,12 @@
 
 ## Criteria A: Planning
 ### Problem definition
-Yasmina is a student at UWC ISAK Japan. Every Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings evert day, and then to have a way to organize the writings by category, according to what she is talking about.
+Yasmina is a student at UWC ISAK Japan. Every Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings every day, and then to have a way to organize the writings by category, according to what she is talking about.
 
 ### Proposed solution
 
 #### Design statement
-I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on a tool called ___ for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python and __ . It will take 3 weeks to make and will be evaluated according to the criteria A, B, and C.
+I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on a tool called ___ for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python and SQL. It will take 3 weeks to make and will be evaluated according to the criteria A, B, C, and D.
 
 
 ### First meeting - 10th February 2023
