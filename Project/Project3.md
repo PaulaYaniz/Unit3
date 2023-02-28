@@ -53,4 +53,5 @@ Delete, add, edit notes options.
 2|Second meeting with client|Write Success Criteria and Client gives her agreeing|10min|Feb 20|A
 3|Write the problem context|Problem definition|10min|Feb 20|A
 4|Write proposed solution|Have a better understanding of what I have to do and write design statement|15min|Feb 22|A
+5|Start developing code|Create login, signup, homescreen, etc|1h|Feb 28|C?
 
