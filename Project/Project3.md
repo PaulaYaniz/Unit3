@@ -58,4 +58,4 @@ Delete, add, edit notes options.
 7|Create log in page|Code log in and connect it to database|1h|Feb 28|D?
 8|Make prototype|Draw a digital protoype|2h|Mar 1|C?
 
-
+ 
