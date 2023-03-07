@@ -3,7 +3,7 @@
 
 ## Criteria A: Planning
 ### Problem definition
-Yasmina is a student at UWC ISAK Japan. Every Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings every day, and then to have a way to organize the writings by category, according to what she is talking about. Yasmina needs a cost effective, efficient, and more private way to track her emotions and write about them.
+My client is a student at a local school. Every Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings every day, and then to have a way to organize the writings by category, according to what she is talking about. Yasmina needs a cost effective, efficient, and more private way to track her emotions and write about them.
 
 ***Problem definition: adequate but you can improve it by adding explicit evidence to the consultation with the client and citations for primary sources. For example: "after consultation with the client (see Appendix A) ..."
 
@@ -24,7 +24,7 @@ I chose SQL because it is an easy and simple way to look and get all data.
 ***No need to include a description of the application here since it will come in section B.
 ***The justification for the proposed solution considers the alternatives. For example, we could have created the application using the language C, why using Python instead, what makes Python a good programming language for solving Ms Sato requirements. One example. Python is free, Ms Sato will not have to buy a license.
 
-
+Apendix
 ### First meeting - 10th February 2023
 My client and me reunited in a 10-minute meeting.
 She wants a mood tracker app. 
@@ -42,14 +42,14 @@ Delete, add, edit notes options.
 
 
 ### Success criteria:
-1. There is a secure registration and login system.
-2. There is an option to reset forgotten password.
+1. There is a secure registration and login system and there is an option to reset forgotten password. 
 3. The application contains a main page with a box asking what is her mood today, to which she can only answer with one adjective.
 4. After answering the adjective, costumer will be able to write notes.
 5. The notes will be grouped in folders by the adjectives.
 6. Negative adjectives notes will be encrypted, and password cannot be changed.
 7. The application will allow to delete, add and edit notes.
 
+Apendix
 ![image](https://user-images.githubusercontent.com/89135778/220805673-657a1824-1ded-4267-ae6a-34af9c249100.png)
 
 
@@ -64,9 +64,18 @@ Delete, add, edit notes options.
 ## Test Plan
 | Test | Description | Procedure | Expected Output |
 |:----:|:-----------:|:---------:|:---------------:|
+Code review - quality (non-functional)
+Organisations: is everythinh organised? Folders, files, etc. (non-functional)
+Unit testing (functional): password policy
+UT: Integration: whole login page
+
+6 sucess criteria + non-functional
+
 
 ***Your Test Plan include several cases with sufficient some details but you can specify the inputs to the test, for example, test #1, says enter a username and password: What values do I enter?
 
+# Wireframe
+connect pages 
 
 ## System Diagram
 
@@ -75,7 +84,7 @@ Delete, add, edit notes options.
 Fig.1 is the System Diagram. It shows the brand and type of the computer, with its specifications and the Operative System is has. The program runs in Python 3.8 and uses different codes (main, login, website_data and proj_lib). Then, these codes connect with a database of csv files (data_transactions and login).
 
 ## Flow Diagrams
-
+3: 1 easy, two medium
 ## Record of Tasks (make it chronological!)
 
 ## Record of Tasks
@@ -90,6 +99,8 @@ Fig.1 is the System Diagram. It shows the brand and type of the computer, with i
 7|Create log in page|Code log in and connect it to database|1h|Feb 28|D?
 8|Make prototype|Draw a digital protoype|2h|Mar 1|C?
 
+30 tasks: for all the steps: planing, testing, development, feedback implementation, design (5)
+
 **Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development (criterias A, B and C). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
@@ -98,6 +109,8 @@ Fig.1 is the System Diagram. It shows the brand and type of the computer, with i
 ### Code
 ***Explain each part: you can improve this part by describing the code in more detail so that you can show your knowledge of computer programming and algorithms. At this point you are just mentioning what the code is intended to do without how it does it. An example of a description is Quiz033.
 
+Why this code is good, why i chose it and how helps the client, gpt
+# Criteria D
 ### Video
 ***Video: The video is not a presentation but a live demonstration that your code works and meets the success criteria. You can improve it by writing a script and reading in during the video making sure to test each criteria in order.
 
