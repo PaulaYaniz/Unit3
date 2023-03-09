@@ -49,12 +49,17 @@ After meeting with the client ans sending her an email (See Appendix B), we agre
 Fig.1 is the System Diagram. It shows the brand and type of the computer, with its specifications and the Operative System is has. The program runs in Python 3.8 and uses different codes (project_unit3.py, project_untit3.kv). Then, these codes connect with a database of sql files (p3_database.db).
 
 # Wireframe
-connect pages 
+**Figure 2:**
+![project_uni3](https://user-images.githubusercontent.com/89135778/224169767-c2b9007b-c950-4da1-a878-60bcfc992628.png)
+Fig.2 is the Wirefram Diagram for the program.
+
+## ER Diagrams
+**Figure 3:**
+![image](https://user-images.githubusercontent.com/89135778/224170770-25fceda6-ddcd-42a6-a891-3884c1891090.png)
+Fig. 3 is the ER diagram for the database that my program uses.
 
 ## Flow Diagrams
 3: 1 easy, two medium
-
-## ER Diagrams
 
 ## UML Diagrams
 for the classes
