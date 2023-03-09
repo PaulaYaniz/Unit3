@@ -51,34 +51,59 @@ Fig.1 is the System Diagram. It shows the brand and type of the computer, with i
 # Wireframe
 **Figure 2:**
 ![project_uni3](https://user-images.githubusercontent.com/89135778/224169767-c2b9007b-c950-4da1-a878-60bcfc992628.png)
+
 Fig.2 is the Wirefram Diagram for the program.
 
 ## ER Diagrams
 **Figure 3:**
+
 ![image](https://user-images.githubusercontent.com/89135778/224170770-25fceda6-ddcd-42a6-a891-3884c1891090.png)
+
 Fig. 3 is the ER diagram for the database that my program uses.
 
 ## UML Diagrams
 **Figure 4:**
+
 ![image](https://user-images.githubusercontent.com/89135778/224172941-c7bd1020-85dd-43a3-8e64-d04201208660.png)
+
 Fig. 4 is the UML diagram for the classes of my program.
 
 ## Flow Diagrams
 3: 1 easy, two medium
 
 ## Record of Tasks
-**Task No**|**Planned Action**|**Planned Outcome**|**Time estimate**|**Target completion date**|**Criterion**
-:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-1|First meeting with client|Client described her requiremetns for the project|10min|Feb 10|A
-2|Second meeting with client|Write Success Criteria and Client gives her agreeing|10min|Feb 20|A
-3|Write the problem context|Problem definition|10min|Feb 20|A
-4|Write proposed solution|Have a better understanding of what I have to do and write design statement|15min|Feb 22|A
-5|Create first page|Code first page, which contains login and singup buttons|45min|Feb 28|D?
-6|Create sign up page|Code sign up and database|1h|Feb 28|D?
-7|Create log in page|Code log in and connect it to database|1h|Feb 28|D?
-8|Make prototype|Draw a digital protoype|2h|Mar 1|C?
-30 tasks: for all the steps: planing, testing, development, feedback implementation, design (5)
-**Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development (criterias A, B and C). The target completion date and the time estimate for each task is also shown.
+| Task No |       Planned Action       |                               Planned Outcome                               | Time estimate | Target completion date | Criterion |
+|:-------:|:--------------------------:|:---------------------------------------------------------------------------:|:-------------:|:----------------------:|:---------:|
+|    1    |  First meeting with client |              Client described her requiremetns for the project              |     10min     |         Feb 10         |     A     |
+|    2    | Second meeting with client |             Write Success Criteria and Client gives her agreeing            |     10min     |         Feb 20         |     A     |
+|    3    |  Write the problem context |                              Problem definition                             |     10min     |         Feb 20         |     A     |
+|    4    |   Write proposed solution  | Have a better understanding of what I have to do and write design statement |     15min     |         Feb 22         |     A     |
+|    5    |      Create first page     |           Code first page, which contains login and singup buttons          |     45min     |         Feb 28         |     C     |
+|    6    |     Create sign up page    |                          Code sign up and database                          |       1h      |         Feb 28         |     C     |
+|    7    |     Create log in page     |                    Code log in and connect it to database                   |       1h      |         Feb 28         |     C     |
+|    8    |       Make prototype       |                 Draw a digital protoype (Wireframe diagram)                 |       2h      |          Mar 1         |     B     |
+| 9       | Third meeting with client  | Progress Check and show digital prototype                                   | 10min         | Mar 2                  | B         |
+| 10      | Flowchart                  | Make flowchart diagrams                                                     | 1h            | Mar 5                  | B         |
+| 11      | UML Diagram                | Draw UML Diagram                                                            | 20min         | Mar 5                  | B         |
+| 12      | ER Diagram                 | Draw ER Diagram                                                             | 10min         | Mar 5                  | B         |
+| 13      | Sign up requirements       | Add password and email requirements                                         | 40min         | Mar 6                  | C         |
+| 14      | Make main page             | Code main page of the program, with 4 buttons                               | 30min         | Mar 6                  | C         |
+| 15      | Make buttons feelings      | Code the feelings buttons and connect to database                           | 1h            | Mar 6                  | C         |
+| 16      | Make folders buttons       | Code the folders buttons based on the the feelings buttons                  | 10min         | Mar 6                  | C         |
+| 17      | Delete note                | Code how to delete a note                                                   | 10min         | Mar 6                  | C         |
+| 18      | Cancel and back buttons    | Code cancel and back buttons to put everywhere around the program           | 15min         | Mar 6                  | C         |
+| 19      | SQL check                  | Make changes on names of tables and columns so it is more user-friendly     | 15min         | Mar 7                  | C         |
+| 20      | Database check             | Add username as a column of the notes table                                 | 10min         | Mar 7                  | C         |
+| 21      | Design check               | Check kivy program and adjust design to make it more user-friendly          | 1h            | Mar 7                  | C         |
+| 22      | Code review                | Make sure that there are comments everywhere                                | 30min         | Mar 7                  | C         |
+| 23      | Make statistics            | Code statistics screen and add a progress bar                               | 1h            | Mar 7                  | C         |
+| 24      | Test plan                  | Try tests and write on GitHub                                               | 30min         | Mar 7                  | B         |
+| 25      | Code in GitHub             | Paste code on GitHub and explain it                                         | 1h            | Mar 8                  | C         |
+| 26      | Sources                    | Get summary of all sources and put on repository                            | 10min         | Mar 9                  | C         |
+| 27      | Tools used                 | Write tools used for unit 3                                                 | 5min          | Mar 9                  | C         |
+| 28      | Check functionality        | Use the final app as a user, test it                                        | 30min         | Mar 9                  | D         |
+| 29      | Video                      | Record video                                                                | 15min         | Mar 10                 | D         |
+**Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
 
