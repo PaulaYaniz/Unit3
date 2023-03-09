@@ -19,6 +19,7 @@ I chose SQL because it is an easy and simple way to look and get all data.
 ***No need to include a description of the application here since it will come in section B.
 ***The justification for the proposed solution considers the alternatives. For example, we could have created the application using the language C, why using Python instead, what makes Python a good programming language for solving Ms Sato requirements. One example. Python is free, Ms Sato will not have to buy a license.
 Apendix
+
 ### First meeting - 10th February 2023
 My client and me reunited in a 10-minute meeting.
 She wants a mood tracker app. 
@@ -29,13 +30,15 @@ You can only answer with one word: Sad, happy, depressed, anxious, excited. List
 Notes screen. Every adjective has a different folder in which she writes. She writes in the page she has the feeling.
 For bad adjectives, encrypted. New TOP SECRET password that you cannot change. It only has a password hint.
 Delete, add, edit notes options.
+
 ### Success criteria:
-1. There is a secure registration and login system and there is an option to reset forgotten password. 
-3. The application contains a main page with a box asking what is her mood today, to which she can only answer with one adjective.
-4. After answering the adjective, costumer will be able to write notes.
-5. The notes will be grouped in folders by the adjectives.
-6. Negative adjectives notes will be encrypted, and password cannot be changed.
-7. The application will allow to delete, add and edit notes.
+1. There is a secure registration and login system with requirements for password and email.
+2. The application will contain a page asking how the client is feeling, to which the client will only be able to answer selecting one of the options given.
+3. After selecting the feeling, the customer will be able to write notes about it.
+4. The notes will be grouped in folders by the adjectives, and will have a date.
+5. The application will allow the client to delete and add notes.
+6. The application will give statistical information about the user's well-being: number of positive and negative emotions felt.
+
 Apendix
 ![Captura de pantalla 2023-03-09 220642](https://user-images.githubusercontent.com/89135778/224033801-0d357219-a87a-412b-9413-bb9108cb1e01.png)
 
