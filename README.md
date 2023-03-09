@@ -9,33 +9,28 @@ My client is a student at a local school. After meeting with her (see Appendix A
 I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on an application for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python, Kivy, and SQLite. It will take 3 weeks to make and will be evaluated according to the criteria A, B, C, and D.
 
 ### Rationale for proposed solution
-The application will have a sign up and login system with encrypted password, to increase security. The application will be minimalistic and simple for it to be user-friendly. Once the user has passed the login system, a main menu will appear. There, user will be able to select and emotion and write how she is feeling. She can also access past notes organised in folders by emotion. The tools I am using for this are Python, Kivy, and SQL.
+OOP is the programming paradigm.The application will have a sign up and login system with encrypted password, to increase security. The application will be minimalistic and simple for it to be user-friendly. Once the user has passed the login system, a main menu will appear. There, user will be able to select and emotion and write how she is feeling. She can also access past notes organised in folders by emotion. The tools I am using for this are Python, Kivy, and SQL.
 I chose Python because  its codes can be easily written and executed much faster than other programming languages[^1]. Python is an open source and has a lot of libraries to complement the code[^2], so there are multiple options of personalisation for fulfilling the client's necessities. Python is also good for the client, as it is free and my client will not need to buy a license[^3].
-I chose Kivy because it is also free and convenient for the client, as it can run in many platforms. Kivy is also one of the better front-end softwares. xxx
-I chose SQL because it is an easy and simple way to look and get all data.
+I chose Kivy because it is also free and convenient for the client, as it can run in many platforms. Kivy is fresh, fast, flexible, and focused. If the client needed to sell her application in the future, doing that would be completely free and she would not have to pay anything to Kivy. [^4]
+I chose SQLite because it is an easy and simple way to look and get all data. SQLite is lightweight, efficient, and easy to integrate in Python applications.  It does not require a separate server process or system, and data can be stored in a single file, making it easy to manage. The use of Client/Server RDBMS would had been necessary for a high volume website, client/server app, very large databases, and high concurrency of simultaneous readers. [^5] As my app does not have data separated from app by the networks, concurrent writers, or very big data, SQLite is a good option that will meet the client’s requirements.
+Overall, the combination of Python, Kivy, and SQLite provides a cost-effective, efficient, and user-friendly solution to the client's needs for a mood tracker application.
 
-Compared to other programming languages like C, Python is a  language that offers a more abstract and user-friendly approach to programming. While C offers more control over hardware and memory, it can be more complex and time-consuming to develop in. Python offers a higher level of abstraction, making it easier to create complex applications quickly and with less code.
-
-In terms of the database management system, SQLite was chosen as it is lightweight, efficient, and easy to integrate into Python applications. It does not require a separate server process or system, and data can be stored in a single file, making it easy to manage.
-
-Overall, the combination of Python, Kivy, and SQLite provides a cost-effective, efficient, and user-friendly solution to the client's needs for a mood diary application.
 [^1]: “Advantages of Python over Other Programming Languages.” Vilmate, 2019, https://vilmate.com/blog/python-vs-other-programming-languages/. 
 [^2]: “About Python.” Python.org, https://www.python.org/about/. 
 [^3]: Citation needed
+[^4]: “Philosophy”, https://kivy.org/doc/stable/philosophy.html
+[^5]: “Appropriate Uses For SQLite”, https://www.sqlite.org/whentouse.html
+
 ***No need to include a description of the application here since it will come in section B.
-***The justification for the proposed solution considers the alternatives. For example, we could have created the application using the language C, why using Python instead, what makes Python a good programming language for solving Ms Sato requirements. One example. Python is free, Ms Sato will not have to buy a license.
-Appendix
 
 ### Success criteria:
+After meeting with the client ans sending her an email (See Appendix B), we agreed the following success criteria:
 1. There is a secure registration and login system with requirements for password and email.
 2. The application will contain a page asking how the client is feeling, to which the client will only be able to answer selecting one of the options given.
 3. After selecting the feeling, the customer will be able to write notes about it.
 4. The notes will be grouped in folders by the adjectives, and will have a date.
 5. The application will allow the client to delete and add notes.
 6. The application will give statistical information about the user's well-being: number of positive and negative emotions felt.
-
-Appendix
-![Captura de pantalla 2023-03-09 220642](https://user-images.githubusercontent.com/89135778/224033801-0d357219-a87a-412b-9413-bb9108cb1e01.png)
 
 ### Things to be done:
 - Wireframe diagram
@@ -117,3 +112,6 @@ Main page with a box asking what is your mood today?
 You can only answer with one word: Sad, happy, anxious, excited. List of options, you click one.
 Notes screen. Every adjective has a different folder in which she writes. She writes in the page she has the feeling.
 Delete and add notes options.
+
+## B: Success Criteria confirmation:
+![Captura de pantalla 2023-03-09 220642](https://user-images.githubusercontent.com/89135778/224033801-0d357219-a87a-412b-9413-bb9108cb1e01.png)
