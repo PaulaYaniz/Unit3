@@ -58,11 +58,13 @@ Fig.2 is the Wirefram Diagram for the program.
 ![image](https://user-images.githubusercontent.com/89135778/224170770-25fceda6-ddcd-42a6-a891-3884c1891090.png)
 Fig. 3 is the ER diagram for the database that my program uses.
 
+## UML Diagrams
+**Figure 4:**
+![image](https://user-images.githubusercontent.com/89135778/224172941-c7bd1020-85dd-43a3-8e64-d04201208660.png)
+Fig. 4 is the UML diagram for the classes of my program.
+
 ## Flow Diagrams
 3: 1 easy, two medium
-
-## UML Diagrams
-for the classes
 
 ## Record of Tasks
 **Task No**|**Planned Action**|**Planned Outcome**|**Time estimate**|**Target completion date**|**Criterion**
