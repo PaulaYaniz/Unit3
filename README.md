@@ -21,8 +21,6 @@ Overall, the combination of Python, Kivy, and SQLite provides a cost-effective, 
 [^4]: “Philosophy”, https://kivy.org/doc/stable/philosophy.html
 [^5]: “Appropriate Uses For SQLite”, https://www.sqlite.org/whentouse.html
 
-***No need to include a description of the application here since it will come in section B.
-
 ### Success criteria:
 After meeting with the client ans sending her an email (See Appendix B), we agreed the following success criteria:
 1. There is a secure registration and login system with requirements for password and email.
@@ -32,20 +30,21 @@ After meeting with the client ans sending her an email (See Appendix B), we agre
 5. The application will allow the client to delete and add notes.
 6. The application will give statistical information about the user's well-being: number of positive and negative emotions felt.
 
-### Things to be done:
-- Wireframe diagram
-- Database ER diagram
-- RoT up to date
-- some code
- # Criteria B: Design
+# Criteria B: Design
 ## Test Plan
-| Test | Description | Procedure | Expected Output |
-|:----:|:-----------:|:---------:|:---------------:|
-Code review - quality (non-functional)
-Organisations: is everythinh organised? Folders, files, etc. (non-functional)
-Unit testing (functional): password policy
-UT: Integration: whole login page
-6 sucess criteria + non-functional
+| TEST                                              | DESCRIPTION                                                                  | PROCEDURE                                                                                                  | EXPECTED OUTPUT                                                                                                                    |
+|---------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Unit testing of sign up page (functional)         | This test evaluates the sign up page.                                        | User tries to sign up, not following the password and email requirements. For example, password="password" | An error will be shown in red just below, explaining why it is incorrect. For example, password does not have digits and uppercase |
+| Unit testing of new note (functional)             | This test is evaluating how the user add a new note into the notes database. | Click "How are ypu feeling" button, select an emotion, write about it.                                     | The note with the emotion will be saved on the database.                                                                           |
+| Unit testing for buttons of feelings (functional) | Functionality of buttons related to emotions                                 | Click on each button and verify.                                                                           | The program will remember which button has just been pressed with a global variable.                                               |
+| Unit testing buttons of folders (functional)      | Functionality of buttons related to folders of emotions.                     | Click on each button and verify.                                                                           | The program will lead the user to read the notes that have been written by her and have the tag of the emotion selected.           |
+| Unit testing for deleting a note(functional)      | Check if the notes can be deleted from database                              | Select a note in Folders, Mark the checkbox, Click delete                                                  | Note will be deleted from database.                                                                                                |
+| Unit testing for statistics (functional)          | Statistics appear in a text message in the user's screen.                    | Click the Statistics button                                                                                | Statistics will appear and they will change when users enter new data in the notes section.                                        |
+| Quality of code review (non-functional)           | Use of comments, tabs, and developer-friendly files and variable names       | Check if the program is developer-friendly                                                                 | Program will have comments on every step of the code, and variable names are easy to understand.                                   |
+| File organisation review (non-functional)         | Are all files organised? Folders, files, etc                                 | Check Pycharm folder and delete files that have not been used for the project.                             | On the project folder all files should have user-friendly names. All files are organised inside the folder.                        |
+| Unit Test: Integration: whole login program       | Check whole code                                                             | Run the program and enter all inputs that a user would put.                                                | The program will not crash and will make its functions.                                                                            |
+
+
 ***Your Test Plan include several cases with sufficient some details but you can specify the inputs to the test, for example, test #1, says enter a username and password: What values do I enter?
 
 # Wireframe
