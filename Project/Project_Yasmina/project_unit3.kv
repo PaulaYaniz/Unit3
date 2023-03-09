@@ -1,0 +1,599 @@
+ScreenManager:
+    id:scr_manager
+    IntroScreen:
+        name: "IntroScreen"
+    LoginScreen:
+        name: "LoginScreen"
+    SignupScreen:
+        name: "SignupScreen"
+    AppScreen:
+        name: "AppScreen"
+    Feelings:
+        name: "Feelings"
+    Notes:
+        name: "Notes"
+    Folders:
+        name: "Folders"
+    AllNotes:
+        name: "AllNotes"
+    Statistics:
+        name: "Statistics"
+
+<IntroScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                text: "Welcome to YasModo, the best app to keep track of your feelings"
+                font_style: "H3"
+                font_name: 'Righteous-Regular'
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+
+        MDBoxLayout:
+            size_hint: 1, .8
+
+            MDRaisedButton:
+                id: login
+                text: "[size=24][b]Login[/b][/size]"
+                on_press: root.press_login()
+                size_hint: .3, .6
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: signup
+                text: "[size=24][b]Sign up[/b][/size]"
+                on_press: root.press_signup()
+                size_hint: .3, .6
+                md_bg_color: "#bfa1e3"
+
+<LoginScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Login"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDTextField:
+            id: username
+            hint_text: "Enter your username"
+            icon_left: "email"
+
+            helper_text_mode: "on_error"
+            helper_text: "Incorrect username"
+
+        MDTextField:
+            id: passwd
+            hint_text: "Enter your password"
+            icon_left: "key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "Incorrect password"
+        MDBoxLayout:
+            size_hint: 1, .2
+
+            MDRaisedButton:
+                id: login
+                text: "Login"
+                on_press: root.try_login()
+                size_hint: .3, 1
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: cancel
+                text: "Cancel"
+                on_press: root.cancel()
+                size_hint: .3, 1
+                md_bg_color: "#bfa1e3"
+
+<SignupScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.7, .8
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Sign up"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDTextField:
+            id: username
+            hint_text: "Enter username"
+            icon_left: "account"
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Username already exists or incorrect"
+
+        MDTextField:
+            id: email
+            hint_text: "Enter email"
+            icon_left: "email"
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Email already exists or incorrect"
+
+        MDTextField:
+            id: passwd_enter
+            hint_text: "Enter password"
+            icon_left: "key"
+            password: True
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Password must have 6-20 characters, 1 upcase,  1 lowcase, and 1 digit"
+
+        MDTextField:
+            id: passwd_check
+            size_hint: 1, .1
+            hint_text: "Confirm password"
+            icon_left: "key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "Password does not match"
+
+        MDBoxLayout:
+            size_hint: 1, .15
+
+            MDRaisedButton:
+                id: signup
+                text: "Submit"
+                on_press: root.try_signup()
+                size_hint: .3, 1
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: signup
+                text: "Cancel"
+                on_press: root.cancel()
+                size_hint: .3, 1
+                md_bg_color: "#bfa1e3"
+
+<AppScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Welcome back! What do you want to do next?"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDScreen:
+            MDBoxLayout:
+                size_hint_y: .75
+                orientation: "vertical"
+                spacing: 25
+                MDFillRoundFlatIconButton:
+                    text:"How are you feeling?"
+                    font_style: "H6"
+                    icon: "thought-bubble"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Feelings"
+
+                MDFillRoundFlatIconButton:
+                    text:"Folders & Notes"
+                    font_style: "H6"
+                    icon: "folder"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Folders"
+
+                MDFillRoundFlatIconButton:
+                    text: "Statistics"
+                    font_style: "H6"
+                    icon: "math-compass"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Statistics"
+
+                MDFillRoundFlatIconButton:
+                    text:"Log out"
+                    font_style: "H6"
+                    icon: "logout"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "IntroScreen"
+
+# code above based on (button types): https://kivymd.readthedocs.io/en/1.1.1/components/button/index.html
+
+<Feelings>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDCard:
+        size_hint: .7, .7
+        pos_hint: {"center_x":.5, "center_y":.5}
+        radius: 30, 0, 30, 0    #top-left, top-right, bottom-left, bottom-right
+        orientation: "vertical"
+
+        MDLabel:
+            text: "How are you feeling today?"
+            font_style: "H4"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .4
+            halign: "center"
+
+        MDGridLayout:
+            rows: 2
+            cols: 5
+            spacing: 10
+            MDRaisedButton:
+                text: "excited"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("excited")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "happy"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("happy")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "calm"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("calm")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "energetic"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("energetic")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "confident"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("confident")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "bored"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("bored")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "frustrated"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("frustrated")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "anxious"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("anxious")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "sad"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("sad")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "angry"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("angry")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+        MDRaisedButton:
+            size_hint: .1, .1
+            text: "Cancel"
+            md_bg_color: "#eb86db"
+            on_press: root.cancel()
+<Notes>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDCard:
+        size_hint: .7, .7
+        pos_hint: {"center_x":.5, "center_y":.5}
+        radius: 30, 0, 30, 0    #top-left, top-right, bottom-left, bottom-right
+        orientation: "vertical"
+
+        MDLabel:
+            id: notes_label
+            text: "Write here your feelings about being"
+            font_style: "H4"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .4
+            halign: "center"
+
+        MDTextField:
+            id: note
+            size_hint: 1, .7
+            hint_text: "Write here"
+            multiline: True
+
+        MDBoxLayout:
+            MDRaisedButton:
+                size_hint: .1, .4
+                text: "Cancel"
+                md_bg_color: "#bfa1e3"
+                on_press: root.cancel()
+            MDRaisedButton:
+                size_hint: .1, .4
+                text: "Next"
+                md_bg_color: "#eb86db"
+                on_press: root.new_note()
+<AllNotes>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDBoxLayout:
+        orientation:"vertical"
+        MDLabel:
+            id: table_label
+            text: "All your notes"
+            font_name: 'Righteous-Regular'
+            halign: "center"
+            font_size: 50
+            size_hint: 1, .1
+
+        MDBoxLayout:
+            id: container
+            orientation: "horizontal"
+            size_hint: 1, .9
+
+            MDBoxLayout:
+                id: side_panel
+                orientation: "horizontal"
+                size_hint: .3, 1
+
+                MDRaisedButton:
+                    text: "Delete"
+                    size_hint: .1, .1
+                    md_bg_color: "#bfa1e3"
+                    on_press: root.delete()
+                MDRaisedButton:
+                    size_hint: .1, .1
+                    text: "Back"
+                    md_bg_color: "#eb86db"
+                    on_press: root.cancel()
+<Folders>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDCard:
+        #md_bg_color: "#fcbf49"
+        size_hint: .7, .7
+        pos_hint: {"center_x":.5, "center_y":.5}
+        radius: 30, 0, 30, 0    #top-left, top-right, bottom-left, bottom-right
+        orientation: "vertical"
+
+        MDLabel:
+            text: "Which emotions you want to read about?"
+            font_style: "H4"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .4
+            halign: "center"
+
+        # layout = GridLayout(cols=5)
+        MDGridLayout:
+            rows: 2
+            cols: 5
+            spacing: 10
+            MDRaisedButton:
+                text: "excited"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("excited")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "happy"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("happy")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "calm"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("calm")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "energetic"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("energetic")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "confident"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("confident")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "bored"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("bored")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "frustrated"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("frustrated")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "anxious"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("anxious")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "sad"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("sad")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "angry"
+                font_style: "H4"
+                id: laughing
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("angry")
+                    root.parent.current = "AllNotes"
+                md_bg_color: "#bfa1e3"
+
+        MDRaisedButton:
+            size_hint: .1, .1
+            text: "Cancel"
+            md_bg_color: "#eb86db"
+            on_press: root.cancel()
+
+<Statistics>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                text: "Statistics"
+                font_style: "H3"
+                font_name: 'Righteous-Regular'
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_total
+                text: "Your total amount of notes written is 1"
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_good
+                text: "You have felt good 0 times."
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_bad
+                text: "You have felt bad 0 times."
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDProgressBar:
+                id: progress_bar
+                value: 0
+                color: app.theme_cls.accent_color
+                pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        MDRaisedButton:
+            id: back
+            text: "Back"
+            on_press: root.parent.current = "AppScreen"
+            size_hint: .2, .1
+            md_bg_color: "#bfa1e3"
