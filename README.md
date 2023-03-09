@@ -44,18 +44,20 @@ After meeting with the client ans sending her an email (See Appendix B), we agre
 | File organisation review (non-functional)         | Are all files organised? Folders, files, etc                                 | Check Pycharm folder and delete files that have not been used for the project.                             | On the project folder all files should have user-friendly names. All files are organised inside the folder.                        |
 | Unit Test: Integration: whole login program       | Check whole code                                                             | Run the program and enter all inputs that a user would put.                                                | The program will not crash and will make its functions.                                                                            |
 
-
-***Your Test Plan include several cases with sufficient some details but you can specify the inputs to the test, for example, test #1, says enter a username and password: What values do I enter?
+## System Diagram
+![image](https://user-images.githubusercontent.com/89135778/224166933-f0d52d3b-e9b8-408a-a755-780d8bb3ef46.png)**Figure 1:** System diagram of my project
+Fig.1 is the System Diagram. It shows the brand and type of the computer, with its specifications and the Operative System is has. The program runs in Python 3.8 and uses different codes (project_unit3.py, project_untit3.kv). Then, these codes connect with a database of sql files (p3_database.db).
 
 # Wireframe
 connect pages 
-## System Diagram
-**Figure 1:** System diagram of my project
-Fig.1 is the System Diagram. It shows the brand and type of the computer, with its specifications and the Operative System is has. The program runs in Python 3.8 and uses different codes (main, login, website_data and proj_lib). Then, these codes connect with a database of csv files (data_transactions and login).
+
 ## Flow Diagrams
 3: 1 easy, two medium
 
-## Record of Tasks (make it chronological!)
+## ER Diagrams
+
+## UML Diagrams
+for the classes
 
 ## Record of Tasks
 **Task No**|**Planned Action**|**Planned Outcome**|**Time estimate**|**Target completion date**|**Criterion**
