@@ -446,8 +446,421 @@ class SignupScreen(MDScreen):
                 size_hint: .3, 1
                 md_bg_color: "#bfa1e3"
 ```
-These functions are implementing the necessary validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords.
+These functions are implementing the necessary validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords. The try_signup() method is called when the user clicks a "Sign Up" button, the method retrieves the user's input from text fields for username, email, password, and password verification. It performs some validation on the input fields to ensure they meet certain criteria, such as the email address being in the correct format and the password meeting certain complexity requirements. If any of the validation fails, an error message is displayed and the method returns, so the user can correct the input. If all the validation passes, the method hashes the user's password and inserts the user's information into a database. Finally, the method clears the input fields and changes the screen to a login screen. For the security requirement that the user asked for, the password is hashed.
 ![image](https://user-images.githubusercontent.com/89135778/224179094-1eadf83f-14e5-4c01-bc96-0f7676d627a7.png)
+
+
+### Main Screen of the App: HomePage with options
+```.py
+# Main Screen of the App: HomePage with options
+class AppScreen(MDScreen):
+    pass
+```
+```.kv
+<AppScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Welcome back! What do you want to do next?"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDScreen:
+            MDBoxLayout:
+                size_hint_y: .75
+                orientation: "vertical"
+                spacing: 25
+                MDFillRoundFlatIconButton:
+                    text:"How are you feeling?"
+                    font_style: "H6"
+                    icon: "thought-bubble"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Feelings"
+
+                MDFillRoundFlatIconButton:
+                    text:"Folders & Notes"
+                    font_style: "H6"
+                    icon: "folder"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Folders"
+
+                MDFillRoundFlatIconButton:
+                    text: "Statistics"
+                    font_style: "H6"
+                    icon: "math-compass"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "Statistics"
+
+                MDFillRoundFlatIconButton:
+                    text:"Log out"
+                    font_style: "H6"
+                    icon: "logout"
+                    md_bg_color: "#eb86db"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    padding: dp(15)
+                    on_press: root.parent.current = "IntroScreen"
+
+# code above based on (button types): https://kivymd.readthedocs.io/en/1.1.1/components/button/index.html
+```
+The main screen includes an image and a card with a welcome message and buttons to navigate to different parts of the app.
+The image displayed is a "FitImage" widget, which scales the image to fit the size of the widget. The card displayed is an "MDCard" widget, which has a specific size_hint and orientation. Inside the card, there is an "MDLabel" widget with text, font style, and size hint settings. Additionally, there is an "MDScreen" widget, which contains an "MDBoxLayout" widget with several "MDFillRoundFlatIconButton" widgets. These buttons have text, font style, icon, and color settings, as well as an "on_press" event that changes the screen to a different screen in the app.
+![image](https://user-images.githubusercontent.com/89135778/224180280-45a3829e-1043-4160-b8ab-4581f0ae0906.png)
+
+### Feelings: Select an emotion
+```.py
+# Feelings: How are you feeling today?
+class Feelings(MDScreen):
+    # Function for getting emotion selected on Kivy button
+    def emotions(self, emotion):
+        # Store emotion selected on global variable
+        global my_emotion
+        my_emotion = emotion
+        # Write text on Notes Screen using emotion selected
+        self.manager.get_screen("Notes").ids.notes_label.text = (f"Write here your feelings about being {emotion}")
+        return emotion
+
+    # Cancel operation and go back to the main AppScreen
+    def cancel(self):
+        self.parent.current = "AppScreen"
+```
+```.kv
+<Feelings>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDCard:
+        size_hint: .7, .7
+        pos_hint: {"center_x":.5, "center_y":.5}
+        radius: 30, 0, 30, 0    #top-left, top-right, bottom-left, bottom-right
+        orientation: "vertical"
+
+        MDLabel:
+            text: "How are you feeling today?"
+            font_style: "H4"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .4
+            halign: "center"
+
+        MDGridLayout:
+            rows: 2
+            cols: 5
+            spacing: 10
+            MDRaisedButton:
+                text: "excited"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("excited")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "happy"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("happy")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "calm"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("calm")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "energetic"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("energetic")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "confident"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("confident")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "bored"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("bored")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "frustrated"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("frustrated")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "anxious"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("anxious")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "sad"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("sad")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+            MDRaisedButton:
+                text: "angry"
+                font_style: "H4"
+                size_hint: .1, .2
+                on_press:
+                    root.emotions("angry")
+                    root.parent.current = "Notes"
+                md_bg_color: "#bfa1e3"
+        MDRaisedButton:
+            size_hint: .1, .1
+            text: "Cancel"
+            md_bg_color: "#eb86db"
+            on_press: root.cancel()
+
+```
+This is the page for the emotions buttons. There is a kivy screen called "Feelings" and a Python class called Feelings that inherits from MDScreen.
+The screen consists of a background image and a card with a title label ("How are you feeling today?") and a grid of buttons with different emotions ("excited", "happy", "calm", etc.) and their corresponding colors. The buttons call the emotions function of the Feelings class when pressed, passing the emotion as an argument. The emotions function stores the selected emotion in a global variable called my_emotion and changes the text of a label called notes_label on the "Notes" screen to prompt the user to write their feelings about the selected emotion. The cancel function allows the user to cancel the operation and return to the main screen ("AppScreen").
+![image](https://user-images.githubusercontent.com/89135778/224180916-d4a27290-6974-4377-a40c-7ae9658b3037.png)
+
+### Notes: Write about your emotion
+```.py
+# Notes Page: Write about the emotion you selected
+class Notes(MDScreen):
+    # Create new note
+    def new_note(self):
+        # Get input from user and get current date with datetime library
+        note = self.ids.note.text
+        nowdate = datetime.datetime.now().date()
+        # Add text written to database
+        db = database_worker("p3_database.db")
+        query = f"INSERT into notes (username, emotion, note, nowdate) values ('{my_username}', '{my_emotion}', '{note}','{nowdate}')"
+        db.run_save(query)
+        db.close()
+        # Delete text written from widget so next time is blank and Change Screen
+        self.ids.note.text = ""
+        self.parent.current = "AppScreen"
+
+    # Cancel operation and go back to the main page: AppScreen
+    def cancel(self):
+        self.ids.note.text = ""
+        self.parent.current = "AppScreen"
+```
+```.kv
+<Notes>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDCard:
+        size_hint: .7, .7
+        pos_hint: {"center_x":.5, "center_y":.5}
+        radius: 30, 0, 30, 0    #top-left, top-right, bottom-left, bottom-right
+        orientation: "vertical"
+
+        MDLabel:
+            id: notes_label
+            text: "Write here your feelings about being"
+            font_style: "H4"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .4
+            halign: "center"
+
+        MDTextField:
+            id: note
+            size_hint: 1, .7
+            hint_text: "Write here"
+            multiline: True
+
+        MDBoxLayout:
+            MDRaisedButton:
+                size_hint: .1, .4
+                text: "Cancel"
+                md_bg_color: "#bfa1e3"
+                on_press: root.cancel()
+            MDRaisedButton:
+                size_hint: .1, .4
+                text: "Next"
+                md_bg_color: "#eb86db"
+                on_press: root.new_note()
+```
+This is the Notes page that allows the user to write about their emotions and save them to a database. The Notes screen consists of a background image, a card layout, and two buttons. The card layout contains a label asking the user to write their feelings, a multiline text field for inputting the note, and two buttons for canceling or saving the note.
+The new_note() function is called when the user clicks the "Next" button. It retrieves the input text from the note field, gets the current date using the datetime library, and saves the data to the database using the database_worker function. The SQL query inserts the user's username, emotion, note, and current date into the notes table.
+The cancel() function is called when the user clicks the "Cancel" button. It clears the note field and changes the screen back to the main AppScreen.
+![image](https://user-images.githubusercontent.com/89135778/224181167-bdde55f9-3fd1-471f-9973-35727c5948e1.png)
+
+### AllNotes: Read notes according to emotion selected on previous page
+```.py
+# Read Notes according to emotion selected on previous page
+class AllNotes(MDScreen):
+    data_table = None
+    # Get data from database
+    def update(self):
+        # Global variable to connect with emotion selected in class Folders
+        global my_emotion
+        emotion = my_emotion
+        # Show text on label
+        self.manager.get_screen("AllNotes").ids.table_label.text = (f"Your notes: {emotion}")
+        # Get notes from database where the emotion is the one selected
+        db = database_worker("p3_database.db")
+        query = f"SELECT * FROM notes WHERE emotion='{my_emotion}' AND username='{my_username}'"
+        data = db.search(query)
+        db.close()
+        self.data_table.update_row_data(None, data)
+
+    # Delete a note selected with a checkbox
+    def delete(self):
+        rows_checked = self.data_table.get_row_checks()
+        db = database_worker("p3_database.db")
+        for r in rows_checked:
+            id = r[0]
+            query = f"delete from notes where id = {id}"
+            print(query)
+            db.run_save(query)
+        db.close()
+        self.update()
+
+    # Cancel operation and go back to AppScreen
+    def cancel(self):
+        self.parent.current = "AppScreen"
+
+    # Before the screen is shown, this code runs
+    def on_pre_enter(self, *args):
+        self.data_table = MDDataTable(
+            size_hint = (.9, .7),
+            pos_hint = {"center_x":.5, "center_y":.5},
+            use_pagination = True,
+            check = True,
+            column_data = [("ID", 25), ("Username", 30), ("Emotion", 30),
+                           ("Note",120), ("Date", 30)]
+        )
+        # add table and checkbox
+        self.data_table.bind(on_check_press=self.check_pressed)
+        self.add_widget(self.data_table)
+        self.update()
+
+    # Check row
+    def check_pressed(self, table, current_row):
+        print("a row was pressed ", current_row)
+```
+```.kv
+<AllNotes>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+    MDBoxLayout:
+        orientation:"vertical"
+        MDLabel:
+            id: table_label
+            text: "All your notes"
+            font_name: 'Righteous-Regular'
+            halign: "center"
+            font_size: 50
+            size_hint: 1, .1
+
+        MDBoxLayout:
+            id: container
+            orientation: "horizontal"
+            size_hint: 1, .9
+
+            MDBoxLayout:
+                id: side_panel
+                orientation: "horizontal"
+                size_hint: .3, 1
+
+                MDRaisedButton:
+                    text: "Delete"
+                    size_hint: .1, .1
+                    md_bg_color: "#bfa1e3"
+                    on_press: root.delete()
+                MDRaisedButton:
+                    size_hint: .1, .1
+                    text: "Back"
+                    md_bg_color: "#eb86db"
+                    on_press: root.cancel()
+```
+This is the "AllNotes" screen in Python Kivy. This screen displays a list of notes that were previously saved by the user, filtered by the emotion selected in the previous "Folders" screen.
+The AllNotes class defines several methods for interacting with the notes database. The update() method retrieves all notes from the database with the selected emotion and displays them in a MDDataTable widget. The delete() method deletes all notes that were checked by the user using the MDDataTable checkbox. The cancel() method returns to the previous screen. The on_pre_enter() method is called before the screen is shown and creates the MDDataTable widget.
+The corresponding .kv file defines the UI layout of the "AllNotes" screen. It includes a header label, a container box for the MDDataTable widget and two buttons: one for deleting checked notes and one for returning to the previous screen.
+![image](https://user-images.githubusercontent.com/89135778/224181757-4cf1cdfb-7bd0-4ad9-931f-5710d3592f1f.png)
+
+### SQLite commands
+```.py
+# SQL queries for creating table users
+query = """CREATE TABLE if not exists users(
+        id integer primary key, 
+        username text,
+        email text,
+        passwd text
+        )"""
+
+db = database_worker("p3_database.db")
+db.run_save(query)
+
+# SQL queries for creating table notes
+query = """CREATE TABLE if not exists notes(
+        id integer primary key, 
+        username text,
+        emotion text,
+        note text,
+        nowdate text
+        )"""
+
+db.run_save(query)
+db.close()
+```
+This code creates two separate tables in an SQLite database named "p3_database.db".
+
+The first table is called "users" and has four columns:
+
+    "id" which is an integer and the primary key
+    "username" which is a text field
+    "email" which is a text field
+    "passwd" which is a text field
+
+The second table is called "notes" and has five columns:
+
+    "id" which is an integer and the primary key
+    "username" which is a text field
+    "emotion" which is a text field
+    "note" which is a text field
+    "nowdate" which is a text field
+
+Both tables use the "if not exists" syntax to avoid creating a table if it already exists. The tables are created using the "CREATE TABLE" SQL statement followed by the name of the table, its columns, and any constraints on those columns.
+The code uses a database_worker class to execute the SQL queries and create the tables.
+
+![image](https://user-images.githubusercontent.com/89135778/224182892-e9104750-9a4f-4787-83fd-037c5f27251c.png)
+![image](https://user-images.githubusercontent.com/89135778/224182958-3543cd17-3276-4535-9b65-549322098df0.png)
 
 ## Sources
 - StackOverFlow.com
