@@ -103,21 +103,357 @@ Fig. 4 is the UML diagram for the classes of my program.
 | 27      | Tools used                 | Write tools used for unit 3                                                 | 5min          | Mar 9                  | C         |
 | 28      | Check functionality        | Use the final app as a user, test it                                        | 30min         | Mar 9                  | D         |
 | 29      | Video                      | Record video                                                                | 15min         | Mar 10                 | D         |
+
+
 **Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
 
-***Here you basically copied some parts of the code related to the criteria. This is good but not sufficient.  You can improve this section by adding a technical description of some of your code to show knowledge.  Also, we want to read here your thinking and rational to solve the client's requirements. "The way I solve this requirements was..."
+***Here you basically copied some parts of the code related to the criteria. This is good but not sufficient.  You can improve this section by adding a technical description of some of your code to show knowledge.  Also, we want to read here your thinking and rational to solve the client's requirements. "The way I solve this requirements was..."Why this code is good, why i chose it and how helps the client, gpt
+
 
 ### Code
+### Choose Login or Singup
+```.py
+# FIRST PAGE: What do you want to do next? Chose Login or Sign Up
+class IntroScreen(MDScreen):
+    # Pressing Login button gets you to the Login Screen
+    def press_login(self):
+        self.parent.current = "LoginScreen"
 
-***Explain each part: you can improve this part by describing the code in more detail so that you can show your knowledge of computer programming and algorithms. At this point you are just mentioning what the code is intended to do without how it does it. An example of a description is Quiz033.
-Why this code is good, why i chose it and how helps the client, gpt
+    # Pressing Sign up button gets you to Sign up Screen
+    def press_signup(self):
+        self.parent.current = "SignupScreen"
+```
+```.kv
+<IntroScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                text: "Welcome to YasModo, the best app to keep track of your feelings"
+                font_style: "H3"
+                font_name: 'Righteous-Regular'
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+
+        MDBoxLayout:
+            size_hint: 1, .8
+
+            MDRaisedButton:
+                id: login
+                text: "[size=24][b]Login[/b][/size]"
+                on_press: root.press_login()
+                size_hint: .3, .6
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: signup
+                text: "[size=24][b]Sign up[/b][/size]"
+                on_press: root.press_signup()
+                size_hint: .3, .6
+                md_bg_color: "#bfa1e3"
+```
+This code defines a screen called "IntroScreen" using the MDScreen class. This screen has two methods called "press_login" and "press_signup" that change the parent widget's current screen to either "LoginScreen" or "SignupScreen" when the corresponding button is pressed.
+This is the first thing that user will see. It is also being made in kivy with Labels and Raised buttons, and with a user-friendly design.
+![image](https://user-images.githubusercontent.com/89135778/224178231-ef66bd6d-4487-4b36-ae8c-4870b392ed2f.png)
+
+### Log in
+```.py
+# LOG IN
+class LoginScreen(MDScreen):
+    # Log in option
+    def try_login(self):
+        # Change boolean for avoiding the page to change automatically after clicking next.
+        change = True
+        # Get user's input: username and password
+        username = self.ids.username.text
+        passwd = self.ids.passwd.text
+        # Check existing usernames on database
+        query = f"SELECT * from users WHERE username='{username}'"
+        db = database_worker("p3_database.db")
+        result = db.search(query=query)
+        global my_username
+        my_username = username
+        db.close()
+
+        # Idea -show visible password: https://www.youtube.com/watch?v=rIATjmj-Sb4&ab_channel=SBDeveloper
+
+        # Match password and change screen
+        if len(result) == 1:
+            id, username, email, hashed = result[0]
+            if check_password(user_password=passwd, hashed_password=hashed):
+                self.parent.current = "AppScreen"
+                # Delete text written
+                self.ids.username.text = ""
+                self.ids.passwd.text = ""
+
+            # Incorrect password, show error message but do not change screen, stay there
+            else:
+                self.ids.passwd.error = True
+                change = False
+        # Incorrect username, show error message and delete both username and password written
+        else:
+            self.ids.username.error = True
+            self.ids.username.text = ""
+            self.ids.passwd.text = ""
+            change = False
+
+    # Cancel operation and go back to first page, IntroScreen
+    def cancel(self):
+        self.ids.username.text = ""
+        self.ids.passwd.text = ""
+        self.parent.current = "IntroScreen"
+```
+```.kv
+<LoginScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Login"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDTextField:
+            id: username
+            hint_text: "Enter your username"
+            icon_left: "email"
+
+            helper_text_mode: "on_error"
+            helper_text: "Incorrect username"
+
+        MDTextField:
+            id: passwd
+            hint_text: "Enter your password"
+            icon_left: "key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "Incorrect password"
+        MDBoxLayout:
+            size_hint: 1, .2
+
+            MDRaisedButton:
+                id: login
+                text: "Login"
+                on_press: root.try_login()
+                size_hint: .3, 1
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: cancel
+                text: "Cancel"
+                on_press: root.cancel()
+                size_hint: .3, 1
+                md_bg_color: "#bfa1e3"
+
+```
+This code defines a LoginScreen class with two methods. The try_login() method is responsible for checking the username and password provided by the user against the existing usernames and passwords in the database. If the username and password match, the method changes the screen to "AppScreen". If the password is incorrect, the method shows an error message but does not change the screen. If the username is incorrect, the method shows an error message and deletes both the username and password written. The cancel() method is responsible for deleting both the username and password written and changing the screen to "IntroScreen".
+- try_login(): This method is triggered when the user tries to log in. It retrieves the user's input for their username and password, checks whether the username exists in the database, and then compares the hashed password with the entered password to determine whether they match. If the username and password are correct, the user is redirected to the main app screen. Otherwise, an error message is displayed.
+- cancel(): This method is triggered when the user cancels the login operation. It resets the text fields and returns the user to the introductory screen.
+The code connects with a database table named "users" with columns "id", "username", "email", and "hashed" and witht the check_password() function.
+![image](https://user-images.githubusercontent.com/89135778/224178965-7b116e26-c906-4a74-968f-94d9e98919f1.png)
+
+### Sign up
+```.py
+# SIGN UP
+class SignupScreen(MDScreen):
+    # Sign up option
+    def try_signup(self):
+        # Get user's input: username, email, password, and password verification
+        username = self.ids.username.text
+        email = self.ids.email.text
+        passwd = self.ids.passwd_enter.text
+        passwd_check = self.ids.passwd_check.text
+        # Change boolean for avoiding the page to change automatically after clicking next
+        change = True
+
+        # Error if username is blank, but do not change screen
+        if username == "":
+            self.ids.username.error = True
+            change = False
+
+        # Email requirements. Code based in: https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python/
+        # Email needs to have a @ symbol, a . (point), and not other special characters.
+        req_email = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+
+        # If email is written incorrectly, show error message
+        if not (re.fullmatch(req_email, email)):
+            self.ids.email.error = True
+            return
+        if email == "":
+            self.ids.email.error = True
+            change = False
+
+        # Password requirements. Code based in: https://stackoverflow.com/questions/41117733/validation-of-a-password-python
+        # Password needs to have between 6 and 20 characters, have a number, a lowercase, and an uppercase at least
+        req_passwd = re.compile('^(?=\S{6,20}$)(?=.*?\d)(?=.*?[a-z])(?=.*?[A-Z])')
+
+        # If password is written incorrectly, show error message
+        if not re.match(req_passwd, passwd):
+            self.ids.passwd_enter.error = True
+            return
+
+        # Check that both passwords match
+        if passwd != passwd_check:
+            self.ids.passwd_check.error = True
+            change = False
+
+        # Check if username exists in the database
+        db = database_worker("p3_database.db")
+        query = f"SELECT * from users WHERE username ='{username}'"
+        result = db.search(query=query)
+        # If username exists, show error message
+        if len(result) == 1:
+            self.ids.username.error = True
+            change = False
+
+        # Check if email exists
+        db = database_worker("p3_database.db")
+        query = f"SELECT * from users WHERE email ='{email}'"
+        result = db.search(query=query)
+        # If email exists, show error message
+        if len(result) == 1:
+            self.ids.email.error = True
+            change = False
+
+        # passwords match, hash the password
+        if change:
+            hash = encrypt_password(passwd)
+            db = database_worker("p3_database.db")
+            query = f"INSERT into users (email, passwd, username) values('{email}','{hash}','{username}')"
+            db.run_save(query)
+            db.close()
+            username = ""
+            email = ""
+            passwd = ""
+            passwd_check = ""
+            self.parent.current = "LoginScreen"
+
+    # Cancel operation, delete text written, go back to first page, IntroScreen
+    def cancel(self):
+        self.ids.username.text = ""
+        self.ids.email.text = ""
+        self.ids.passwd_enter.text = ""
+        self.ids.passwd_check.text = ""
+        self.parent.current = "IntroScreen"
+```
+```.kv
+<SignupScreen>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.7, .8
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDLabel:
+            text: "Sign up"
+            font_style: "H3"
+            font_name: 'Righteous-Regular'
+            size_hint: 1, .2
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        MDTextField:
+            id: username
+            hint_text: "Enter username"
+            icon_left: "account"
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Username already exists or incorrect"
+
+        MDTextField:
+            id: email
+            hint_text: "Enter email"
+            icon_left: "email"
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Email already exists or incorrect"
+
+        MDTextField:
+            id: passwd_enter
+            hint_text: "Enter password"
+            icon_left: "key"
+            password: True
+            size_hint: 1, .1
+
+            helper_text_mode: "on_error"
+            helper_text: "Password must have 6-20 characters, 1 upcase,  1 lowcase, and 1 digit"
+
+        MDTextField:
+            id: passwd_check
+            size_hint: 1, .1
+            hint_text: "Confirm password"
+            icon_left: "key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "Password does not match"
+
+        MDBoxLayout:
+            size_hint: 1, .15
+
+            MDRaisedButton:
+                id: signup
+                text: "Submit"
+                on_press: root.try_signup()
+                size_hint: .3, 1
+                md_bg_color: "#eb86db"
+
+            MDLabel:
+                size_hint: .3, 1
+
+            MDRaisedButton:
+                id: signup
+                text: "Cancel"
+                on_press: root.cancel()
+                size_hint: .3, 1
+                md_bg_color: "#bfa1e3"
+```
+These functions are implementing the necessary validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords.
+![image](https://user-images.githubusercontent.com/89135778/224179094-1eadf83f-14e5-4c01-bc96-0f7676d627a7.png)
 
 ## Sources
-StackOverFlow.com
-YouTube.com
-kivy.org/doc/stable/
+- StackOverFlow.com
+- YouTube.com
+- kivy.org/doc/stable/
+- Chat GPT
 
 ## Tools used in Unit 3
 - Functions
