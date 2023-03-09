@@ -69,7 +69,6 @@ Fig. 3 is the ER diagram for the database that my program uses.
 Fig. 4 is the UML diagram for the classes of my program.
 
 ## Flow Diagrams
-3: 1 easy, two medium
 
 ## Record of Tasks
 | Task No |       Planned Action       |                               Planned Outcome                               | Time estimate | Target completion date | Criterion |
@@ -108,11 +107,8 @@ Fig. 4 is the UML diagram for the classes of my program.
 **Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
-
-***Here you basically copied some parts of the code related to the criteria. This is good but not sufficient.  You can improve this section by adding a technical description of some of your code to show knowledge.  Also, we want to read here your thinking and rational to solve the client's requirements. "The way I solve this requirements was..."Why this code is good, why i chose it and how helps the client, gpt
-
-
 ### Code
+* More specific information on the comments of the code
 ### Choose Login or Singup
 ```.py
 # FIRST PAGE: What do you want to do next? Chose Login or Sign Up
@@ -169,7 +165,8 @@ class IntroScreen(MDScreen):
                 md_bg_color: "#bfa1e3"
 ```
 This code defines a screen called "IntroScreen" using the MDScreen class. This screen has two methods called "press_login" and "press_signup" that change the parent widget's current screen to either "LoginScreen" or "SignupScreen" when the corresponding button is pressed.
-This is the first thing that user will see. It is also being made in kivy with Labels and Raised buttons, and with a user-friendly design.
+This is the first thing that user will see. It is also being made in kivy with Labels and Raised buttons, and with a user-friendly design. This helps my client because she wants to be able to login and register.
+
 ![image](https://user-images.githubusercontent.com/89135778/224178231-ef66bd6d-4487-4b36-ae8c-4870b392ed2f.png)
 
 ### Log in
@@ -281,6 +278,9 @@ This code defines a LoginScreen class with two methods. The try_login() method i
 - try_login(): This method is triggered when the user tries to log in. It retrieves the user's input for their username and password, checks whether the username exists in the database, and then compares the hashed password with the entered password to determine whether they match. If the username and password are correct, the user is redirected to the main app screen. Otherwise, an error message is displayed.
 - cancel(): This method is triggered when the user cancels the login operation. It resets the text fields and returns the user to the introductory screen.
 The code connects with a database table named "users" with columns "id", "username", "email", and "hashed" and witht the check_password() function.
+
+This helps my client because she wants to be able to login in a secure way. Once a user has entered the username, they will only be able to access the notes that they have written, so it is important to know your password and email.
+
 ![image](https://user-images.githubusercontent.com/89135778/224178965-7b116e26-c906-4a74-968f-94d9e98919f1.png)
 
 ### Sign up
@@ -447,6 +447,9 @@ class SignupScreen(MDScreen):
                 md_bg_color: "#bfa1e3"
 ```
 These functions are implementing the necessary validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords. The try_signup() method is called when the user clicks a "Sign Up" button, the method retrieves the user's input from text fields for username, email, password, and password verification. It performs some validation on the input fields to ensure they meet certain criteria, such as the email address being in the correct format and the password meeting certain complexity requirements. If any of the validation fails, an error message is displayed and the method returns, so the user can correct the input. If all the validation passes, the method hashes the user's password and inserts the user's information into a database. Finally, the method clears the input fields and changes the screen to a login screen. For the security requirement that the user asked for, the password is hashed.
+
+This helps my client because she wants to be able to register following some requirements for email and password. Email will need to have "@" and "." and cannot end in special character, or have one. Password needs to have between 6 and 20 characters, with one uppercase, one lowercase, and one digit minimum.
+
 ![image](https://user-images.githubusercontent.com/89135778/224179094-1eadf83f-14e5-4c01-bc96-0f7676d627a7.png)
 
 
@@ -522,6 +525,8 @@ class AppScreen(MDScreen):
 ```
 The main screen includes an image and a card with a welcome message and buttons to navigate to different parts of the app.
 The image displayed is a "FitImage" widget, which scales the image to fit the size of the widget. The card displayed is an "MDCard" widget, which has a specific size_hint and orientation. Inside the card, there is an "MDLabel" widget with text, font style, and size hint settings. Additionally, there is an "MDScreen" widget, which contains an "MDBoxLayout" widget with several "MDFillRoundFlatIconButton" widgets. These buttons have text, font style, icon, and color settings, as well as an "on_press" event that changes the screen to a different screen in the app.
+
+This is helping my client in what she wants because this page will lead the users to other pages that follow the success criteria, like Statistics, How are you feeling, and Folders.
 ![image](https://user-images.githubusercontent.com/89135778/224180280-45a3829e-1043-4160-b8ab-4581f0ae0906.png)
 
 ### Feelings: Select an emotion
@@ -652,6 +657,9 @@ class Feelings(MDScreen):
 ```
 This is the page for the emotions buttons. There is a kivy screen called "Feelings" and a Python class called Feelings that inherits from MDScreen.
 The screen consists of a background image and a card with a title label ("How are you feeling today?") and a grid of buttons with different emotions ("excited", "happy", "calm", etc.) and their corresponding colors. The buttons call the emotions function of the Feelings class when pressed, passing the emotion as an argument. The emotions function stores the selected emotion in a global variable called my_emotion and changes the text of a label called notes_label on the "Notes" screen to prompt the user to write their feelings about the selected emotion. The cancel function allows the user to cancel the operation and return to the main screen ("AppScreen").
+
+This is helping my client because she wanted to be able to choose from a set amount of emotions, that we previously discussed. 
+
 ![image](https://user-images.githubusercontent.com/89135778/224180916-d4a27290-6974-4377-a40c-7ae9658b3037.png)
 
 ### Notes: Write about your emotion
@@ -717,6 +725,8 @@ class Notes(MDScreen):
 This is the Notes page that allows the user to write about their emotions and save them to a database. The Notes screen consists of a background image, a card layout, and two buttons. The card layout contains a label asking the user to write their feelings, a multiline text field for inputting the note, and two buttons for canceling or saving the note.
 The new_note() function is called when the user clicks the "Next" button. It retrieves the input text from the note field, gets the current date using the datetime library, and saves the data to the database using the database_worker function. The SQL query inserts the user's username, emotion, note, and current date into the notes table.
 The cancel() function is called when the user clicks the "Cancel" button. It clears the note field and changes the screen back to the main AppScreen.
+
+This helps my client because she wanted do be able to write notes about the feeling she selected.
 ![image](https://user-images.githubusercontent.com/89135778/224181167-bdde55f9-3fd1-471f-9973-35727c5948e1.png)
 
 ### AllNotes: Read notes according to emotion selected on previous page
@@ -812,6 +822,8 @@ class AllNotes(MDScreen):
 This is the "AllNotes" screen in Python Kivy. This screen displays a list of notes that were previously saved by the user, filtered by the emotion selected in the previous "Folders" screen.
 The AllNotes class defines several methods for interacting with the notes database. The update() method retrieves all notes from the database with the selected emotion and displays them in a MDDataTable widget. The delete() method deletes all notes that were checked by the user using the MDDataTable checkbox. The cancel() method returns to the previous screen. The on_pre_enter() method is called before the screen is shown and creates the MDDataTable widget.
 The corresponding .kv file defines the UI layout of the "AllNotes" screen. It includes a header label, a container box for the MDDataTable widget and two buttons: one for deleting checked notes and one for returning to the previous screen.
+
+This helps my client because she wanted to be able to read the notes she had written organised by cateogory, and to be able to delete them.
 ![image](https://user-images.githubusercontent.com/89135778/224181757-4cf1cdfb-7bd0-4ad9-931f-5710d3592f1f.png)
 
 ### SQLite commands
@@ -858,6 +870,8 @@ The second table is called "notes" and has five columns:
 
 Both tables use the "if not exists" syntax to avoid creating a table if it already exists. The tables are created using the "CREATE TABLE" SQL statement followed by the name of the table, its columns, and any constraints on those columns.
 The code uses a database_worker class to execute the SQL queries and create the tables.
+
+This is helping my client because using a SQLite database I am managing her program, the notes she writes, and the usernames there are.
 
 ![image](https://user-images.githubusercontent.com/89135778/224182892-e9104750-9a4f-4787-83fd-037c5f27251c.png)
 ![image](https://user-images.githubusercontent.com/89135778/224182958-3543cd17-3276-4535-9b65-549322098df0.png)
