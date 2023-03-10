@@ -87,6 +87,9 @@ Fig. 5: Flow diagram of the sign up screen
 
 Fig. 6: Flow diagram of the Statistics class
 
+![image](https://user-images.githubusercontent.com/89135778/224262978-0a7d1933-2b9e-4d03-99e8-059aca384e87.png)
+
+Fig. 7: Flow diagram of the delete function in the AllNotes class.
 
 ## Record of Tasks
 | Task No |       Planned Action       |                               Planned Outcome                               | Time estimate | Target completion date | Criterion |
