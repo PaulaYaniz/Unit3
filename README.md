@@ -57,14 +57,14 @@ Fig.2 is the Wirefram Diagram for the program.
 ## ER Diagrams
 **Figure 3:**
 
-![image](https://user-images.githubusercontent.com/89135778/224170770-25fceda6-ddcd-42a6-a891-3884c1891090.png)
+![image](https://user-images.githubusercontent.com/89135778/224231478-816461fb-ca67-4db7-b5a7-56844cec5033.png)
 
 Fig. 3 is the ER diagram for the database that my program uses.
 
 ## UML Diagrams
 **Figure 4:**
 
-![image](https://user-images.githubusercontent.com/89135778/224172941-c7bd1020-85dd-43a3-8e64-d04201208660.png)
+![image](https://user-images.githubusercontent.com/89135778/224231629-ca592591-2f45-471c-91f6-9f6550794f87.png)
 
 Fig. 4 is the UML diagram for the classes of my program.
 
