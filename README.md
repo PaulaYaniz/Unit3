@@ -69,6 +69,7 @@ Fig. 3 is the ER diagram for the database that my program uses.
 Fig. 4 is the UML diagram for the classes of my program.
 
 ## Flow Diagrams
+![image](https://user-images.githubusercontent.com/89135778/224246774-2965553f-dc96-4df2-a422-bf14ae4517b8.png)
 
 ## Record of Tasks
 | Task No |       Planned Action       |                               Planned Outcome                               | Time estimate | Target completion date | Criterion |
@@ -899,7 +900,7 @@ This is helping my client because using a SQLite database I am managing her prog
 ### Video
 https://drive.google.com/file/d/15uBFJJsWgiyDIDAHGMM9TPk85QTE450Q/view?usp=sharing
 
-# APENDIX
+# APPENDIX
 ## A: Notes from First meeting - 10th February 2023
 My client and me reunited in a 10-minute meeting.
 She wants a mood tracker app. 
