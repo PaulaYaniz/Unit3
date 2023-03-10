@@ -71,6 +71,13 @@ Fig. 4 is the UML diagram for the classes of my program.
 ## Flow Diagrams
 ![image](https://user-images.githubusercontent.com/89135778/224246774-2965553f-dc96-4df2-a422-bf14ae4517b8.png)
 
+Fig. 5: Flow diagram of the sign up screen
+
+![image](https://user-images.githubusercontent.com/89135778/224253617-4203c2b5-3d41-4864-84d1-b9887bb14a8f.png)
+
+Fig. 6: Flow diagram of the Statistics class
+
+
 ## Record of Tasks
 | Task No |       Planned Action       |                               Planned Outcome                               | Time estimate | Target completion date | Criterion |
 |:-------:|:--------------------------:|:---------------------------------------------------------------------------:|:-------------:|:----------------------:|:---------:|
@@ -103,13 +110,15 @@ Fig. 4 is the UML diagram for the classes of my program.
 | 27      | Tools used                 | Write tools used for unit 3                                                 | 5min          | Mar 9                  | C         |
 | 28      | Check functionality        | Use the final app as a user, test it                                        | 30min         | Mar 9                  | D         |
 | 29      | Video                      | Record video                                                                | 15min         | Mar 10                 | D         |
+| 30      | Flow diagram                      |  Make flow diagram of the Sign Up screen                                                                | 1h         | Mar 10                 | B         |
+| 31      | Flow diagram                      | Make flow diagram of the Statistics class                                                                | 1h         | Mar 10                 | B         |
 
 
 **Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
 ### Code
-* More specific information on the comments of the code
+* More details on the comments of the code
 ### Choose Login or Singup
 ```.py
 # FIRST PAGE: What do you want to do next? Chose Login or Sign Up
@@ -276,11 +285,13 @@ class LoginScreen(MDScreen):
 
 ```
 This code defines a LoginScreen class with two methods. The try_login() method is responsible for checking the username and password provided by the user against the existing usernames and passwords in the database. If the username and password match, the method changes the screen to "AppScreen". If the password is incorrect, the method shows an error message but does not change the screen. If the username is incorrect, the method shows an error message and deletes both the username and password written. The cancel() method is responsible for deleting both the username and password written and changing the screen to "IntroScreen".
-- try_login(): This method is triggered when the user tries to log in. It retrieves the user's input for their username and password, checks whether the username exists in the database, and then compares the hashed password with the entered password to determine whether they match. If the username and password are correct, the user is redirected to the main app screen. Otherwise, an error message is displayed.
-- cancel(): This method is triggered when the user cancels the login operation. It resets the text fields and returns the user to the introductory screen.
+
+The method try_login() works when the user tries to log in. It gets the user's input for their username and password, checks wheather the username exists in the database, and then compares the hashed password with the entered password to determine wheather they match. If the username and password are correct, the user is redirected to the main app screen. Otherwise, an error message is displayed.
+
+The method cancel() works when the user cancels the login operation. It resets the text fields and returns the user to the first screen.
 The code connects with a database table named "users" with columns "id", "username", "email", and "hashed" and witht the check_password() function.
 
-This helps my client because she wants to be able to login in a secure way. Once a user has entered the username, they will only be able to access the notes that they have written, so it is important to know your password and email.
+This helps my client because she wants to be able to login in a secure way. Once a user has entered the username, they will only be able to access the notes that they have written, so it is important to know your password and email. (Criteria 1)
 
 ![image](https://user-images.githubusercontent.com/89135778/224178965-7b116e26-c906-4a74-968f-94d9e98919f1.png)
 
@@ -447,9 +458,9 @@ class SignupScreen(MDScreen):
                 size_hint: .3, 1
                 md_bg_color: "#bfa1e3"
 ```
-These functions are implementing the necessary validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords. The try_signup() method is called when the user clicks a "Sign Up" button, the method retrieves the user's input from text fields for username, email, password, and password verification. It performs some validation on the input fields to ensure they meet certain criteria, such as the email address being in the correct format and the password meeting certain complexity requirements. If any of the validation fails, an error message is displayed and the method returns, so the user can correct the input. If all the validation passes, the method hashes the user's password and inserts the user's information into a database. Finally, the method clears the input fields and changes the screen to a login screen. For the security requirement that the user asked for, the password is hashed.
+These functions are implementing the validations for both login and signup processes and interact with the database to check for existing users, create new users, and store hashed passwords. The try_signup() method is called when the user clicks a "Sign Up" button, the method gets the user's input from text fields for username, email, password, and password verification. There is validation on the input fields to ensure they meet certain criteria, like the email address being in the correct format and the password meeting some requirements. If any of the validation fails, an error message is displayed and the method returns, so the user can correct the input. If all the validation passes, the method hashes the user's password and inserts the user's information into a database. Finally, the method clears the input fields and changes the screen to a login screen. For the security requirement that the user asked for, the password is hashed.
 
-This helps my client because she wants to be able to register following some requirements for email and password. Email will need to have "@" and "." and cannot end in special character, or have one. Password needs to have between 6 and 20 characters, with one uppercase, one lowercase, and one digit minimum.
+This helps my client because she wants to be able to register following some requirements for email and password. Email will need to have "@" and "." and cannot end in special character, or have one. Password needs to have between 6 and 20 characters, with one uppercase, one lowercase, and one digit minimum. (Criteria 1)
 
 ![image](https://user-images.githubusercontent.com/89135778/224179094-1eadf83f-14e5-4c01-bc96-0f7676d627a7.png)
 
@@ -528,6 +539,7 @@ The main screen includes an image and a card with a welcome message and buttons 
 The image displayed is a "FitImage" widget, which scales the image to fit the size of the widget. The card displayed is an "MDCard" widget, which has a specific size_hint and orientation. Inside the card, there is an "MDLabel" widget with text, font style, and size hint settings. Additionally, there is an "MDScreen" widget, which contains an "MDBoxLayout" widget with several "MDFillRoundFlatIconButton" widgets. These buttons have text, font style, icon, and color settings, as well as an "on_press" event that changes the screen to a different screen in the app.
 
 This is helping my client in what she wants because this page will lead the users to other pages that follow the success criteria, like Statistics, How are you feeling, and Folders.
+
 ![image](https://user-images.githubusercontent.com/89135778/224180280-45a3829e-1043-4160-b8ab-4581f0ae0906.png)
 
 ### Feelings: Select an emotion
@@ -659,7 +671,7 @@ class Feelings(MDScreen):
 This is the page for the emotions buttons. There is a kivy screen called "Feelings" and a Python class called Feelings that inherits from MDScreen.
 The screen consists of a background image and a card with a title label ("How are you feeling today?") and a grid of buttons with different emotions ("excited", "happy", "calm", etc.) and their corresponding colors. The buttons call the emotions function of the Feelings class when pressed, passing the emotion as an argument. The emotions function stores the selected emotion in a global variable called my_emotion and changes the text of a label called notes_label on the "Notes" screen to prompt the user to write their feelings about the selected emotion. The cancel function allows the user to cancel the operation and return to the main screen ("AppScreen").
 
-This is helping my client because she wanted to be able to choose from a set amount of emotions, that we previously discussed. 
+This is helping my client because she wanted to be able to choose from a set amount of emotions, that we previously discussed. The design is also user-friendly and has a relaxing background to make the user be calm. (Criteria 2)
 
 ![image](https://user-images.githubusercontent.com/89135778/224180916-d4a27290-6974-4377-a40c-7ae9658b3037.png)
 
@@ -723,11 +735,14 @@ class Notes(MDScreen):
                 md_bg_color: "#eb86db"
                 on_press: root.new_note()
 ```
-This is the Notes page that allows the user to write about their emotions and save them to a database. The Notes screen consists of a background image, a card layout, and two buttons. The card layout contains a label asking the user to write their feelings, a multiline text field for inputting the note, and two buttons for canceling or saving the note.
-The new_note() function is called when the user clicks the "Next" button. It retrieves the input text from the note field, gets the current date using the datetime library, and saves the data to the database using the database_worker function. The SQL query inserts the user's username, emotion, note, and current date into the notes table.
+This is the Notes page that allows the user to write about their emotions and to save them to a database. The Notes screen consists of a background image, a card layout, and two buttons. The card layout contains a label asking the user to write their feelings, a multiline text field for inputting the note, and two buttons for canceling or saving the note.
+
+The new_note() function is called when the user clicks the "Next" button. It gets the input text from the note field, gets the current date using the datetime library, and saves the data to the database using the database_worker function. The SQL query inserts the user's username, emotion, note, and current date into the notes table.
+
 The cancel() function is called when the user clicks the "Cancel" button. It clears the note field and changes the screen back to the main AppScreen.
 
-This helps my client because she wanted do be able to write notes about the feeling she selected.
+This helps my client because she wanted do be able to write notes about the feeling she selected (Criteria 3)
+
 ![image](https://user-images.githubusercontent.com/89135778/224181167-bdde55f9-3fd1-471f-9973-35727c5948e1.png)
 
 ### AllNotes: Read notes according to emotion selected on previous page
@@ -821,11 +836,127 @@ class AllNotes(MDScreen):
                     on_press: root.cancel()
 ```
 This is the "AllNotes" screen in Python Kivy. This screen displays a list of notes that were previously saved by the user, filtered by the emotion selected in the previous "Folders" screen.
-The AllNotes class defines several methods for interacting with the notes database. The update() method retrieves all notes from the database with the selected emotion and displays them in a MDDataTable widget. The delete() method deletes all notes that were checked by the user using the MDDataTable checkbox. The cancel() method returns to the previous screen. The on_pre_enter() method is called before the screen is shown and creates the MDDataTable widget.
+
+The AllNotes class defines several methods for interacting with the notes database. The update() method gets all notes from the database with the selected emotion and displays them in a MDDataTable widget. The delete() method deletes all notes that were checked by the user using the MDDataTable checkbox. The cancel() method returns to the previous screen. The on_pre_enter() method is called before the screen is shown and creates the MDDataTable widget.
+
 The corresponding .kv file defines the UI layout of the "AllNotes" screen. It includes a header label, a container box for the MDDataTable widget and two buttons: one for deleting checked notes and one for returning to the previous screen.
 
-This helps my client because she wanted to be able to read the notes she had written organised by cateogory, and to be able to delete them.
+This helps my client because she wanted to be able to read the notes she had written organised by cateogory (Criteria 4), and to be able to delete them (Criteria 5).
+
 ![image](https://user-images.githubusercontent.com/89135778/224181757-4cf1cdfb-7bd0-4ad9-931f-5710d3592f1f.png)
+
+### Statistics
+```.py
+# Statistics: show basic data about user's well-being
+class Statistics(MDScreen):
+    # Count the number of time user has felt a negative feeling
+    def count_bad(self):
+        db = database_worker("p3_database.db")
+        query = f"SELECT COUNT(emotion) FROM notes WHERE username='{my_username}' and (emotion='bored' or emotion='frustrated' or emotion='anxious' or emotion='sad' or emotion='angry');"
+        data = db.search(query)
+        # Show text on kivy saying the number
+        self.manager.get_screen("Statistics").ids.count_bad.text = f"You have felt negative feelings {data[0][0]} times."
+        db.close()
+        return data[0][0]
+
+    # Count the number of time user has felt a positive feeling
+    def count_good(self):
+        db = database_worker("p3_database.db")
+        query = f"SELECT COUNT(emotion) FROM notes WHERE username='{my_username}' and (emotion='excited' or emotion='happy' or emotion='calm' or emotion='energetic' or emotion='confident');"
+        data = db.search(query)
+        # Show text on kivy saying the number
+        self.manager.get_screen("Statistics").ids.count_good.text = f"You have felt positive feelings {data[0][0]} times."
+        db.close()
+        return data[0][0]
+
+    # Count total amount of times the user has entered a feeling of any type
+    def count_total(self):
+        db = database_worker("p3_database.db")
+        query = f"SELECT COUNT(emotion) FROM notes WHERE username='{my_username}';"
+        data = db.search(query)
+        # Show text on kivy saying the number
+        self.manager.get_screen("Statistics").ids.count_total.text = f"Your total amount of notes written is {data[0][0]}"
+        db.close()
+
+        # Setting up the progress
+        total = data[0][0]      # Total number for progress bar
+        good_pct = self.count_good() / total     # Progress made (positive feelings)
+        self.manager.get_screen("Statistics").ids.progress_bar.value = good_pct * 100
+
+    # Show this when entering the page
+    def on_enter(self):
+        self.count_total()      # Total emotions felt
+        self.count_good()       # Positive emotions felt
+        self.count_bad()        # Negative emotions felt
+
+        # Add progress bar
+        self.progress_bar = MDProgressBar(max=100, value=0, size_hint=(0.8, None), height="20dp", pos_hint={"center_x": 0.5, "center_y": 0.3})
+        self.manager.get_screen("Statistics").add_widget(self.progress_bar)
+```
+```.kv
+<Statistics>
+    size: 500, 500
+    FitImage:
+        source: "relaxing-wallpaper.jpg"
+
+    MDCard:
+        size_hint: 0.6, .7
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        padding: dp(50)
+
+        MDBoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                text: "Statistics"
+                font_style: "H3"
+                font_name: 'Righteous-Regular'
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_total
+                text: "Your total amount of notes written is 1"
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_good
+                text: "You have felt good 0 times."
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDLabel:
+                id: count_bad
+                text: "You have felt bad 0 times."
+                font_style: "H6"
+                size_hint: .9, .5
+                halign: "center"
+                spacing: dp(1)
+            MDProgressBar:
+                id: progress_bar
+                value: 0
+                color: app.theme_cls.accent_color
+                pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        MDRaisedButton:
+            id: back
+            text: "Back"
+            on_press: root.parent.current = "AppScreen"
+            size_hint: .2, .1
+            md_bg_color: "#bfa1e3"
+```
+The screen "Statistics" displays basic data about the user's well-being. There are three labels that display the number of times the user has felt negative feelings, positive feelings, and the total amount of notes written. These labels are updated by calling the count_bad(), count_good(), and count_total() methods, respectively.
+These are methods on Python. The count_bad() counts the number of times the user has felt a negative feeling by querying a SQLite database and displaying the result on a Kivy Label with the id count_bad. The count_good() counts the number of times the user has felt a positive feeling by querying a SQLite database and displaying the result on a Kivy Label with the id count_good. The count_total() counts the total amount of times the user has entered a feeling of any type by querying a SQLite database and displaying the result on a Kivy Label with the id count_total. Additionally, it sets up a progress bar widget by calculating the percentage of positive feelings in relation to the total amount of notes and updating the value of a Kivy ProgressBar with the id progress_bar. The on_enter() method is called when the Statistics screen is entered. It calls the count_total(), count_good(), and count_bad() methods and creates and adds a MDProgressBar widget to the screen with the id progress_bar.
+
+The Kivy code defines a screen with a background image and a MDCard widget with a MDBoxLayout containing several MDLabel widgets and a MDProgressBar widget with the id progress_bar. The MDCard widget also has a MDRaisedButton with the id back that takes the user back to the AppScreen screen when pressed. The MDLabel widgets display the results of the queries made in the Statistics class methods.
+
+There is also a progress bar that shows the user's progress in feeling positive emotions. This progress bar is updated by calling the count_good() and count_total() methods to calculate the percentage of positive emotions felt by the user. Also, a "Back" button that allows the user to go back to the previous screen.
+
+This helps my client because she wanted the application to give statistical information about the user's well-being, like number of positive and negative emotions felt. (Criteria 6)
+![image](https://user-images.githubusercontent.com/89135778/224258800-f9bbb0ed-ac23-497c-9d2b-62f3b9c71125.png)
 
 ### SQLite commands
 ```.py
@@ -870,6 +1001,7 @@ The second table is called "notes" and has five columns:
     "nowdate" which is a text field
 
 Both tables use the "if not exists" syntax to avoid creating a table if it already exists. The tables are created using the "CREATE TABLE" SQL statement followed by the name of the table, its columns, and any constraints on those columns.
+
 The code uses a database_worker class to execute the SQL queries and create the tables.
 
 This is helping my client because using a SQLite database I am managing her program, the notes she writes, and the usernames there are.
