@@ -1,12 +1,10 @@
-# Project 3: A mood-tracker application for Yasmina
-![image](https://user-images.githubusercontent.com/89135778/220579524-79062314-865f-4003-af22-dac634d9b7a0.png)
+# Project 3: A mood-tracker application
+![image](https://user-images.githubusercontent.com/89135778/224260546-fc920a5c-448b-43b3-975d-bcf483d72493.png)
 
 ## Criteria A: Planning
+
 ### Problem definition
 My client is a student at a local school. After meeting with her (see Appendix A) I learned that very Monday morning at her advisory, she fills out the Komodo survey, a survey that checks the students' wellbeing at her school. However, she feels like the survey has too many questions, it is sometimes not accurate enough, and it does not allow her to express all her feelings. She would like to write a personal diary, but as she lives with 3 roommates, she thinks she would not have enough privacy. She would like to be able to write about her feelings every day, and then to have a way to organize the writings by category, according to what she is talking about. My client needs a cost effective, efficient, and more private way to track her emotions and write about them. 
-
-#### Design statement
-I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on an application for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python, Kivy, and SQLite. It will take 3 weeks to make and will be evaluated according to the criteria A, B, C, and D.
 
 ### Rationale for proposed solution
 OOP is the programming paradigm.The application will have a sign up and login system with encrypted password, to increase security. The application will be minimalistic and simple for it to be user-friendly. Once the user has passed the login system, a main menu will appear. There, user will be able to select and emotion and write how she is feeling. She can also access past notes organised in folders by emotion. The tools I am using for this are Python, Kivy, and SQL.
@@ -31,6 +29,14 @@ After meeting with the client ans sending her an email (See Appendix B), we agre
 6. The application will give statistical information about the user's well-being: number of positive and negative emotions felt.
 
 # Criteria B: Design
+## Design statement
+I will design and make an application for writing a mood diary for a client who is a student at UWC ISAK Japan. The program will consist on an application for being able to keep track of her mood every day, plus being able to write some notes and having them organized by feeling. It is constructed using the softwares Python, Kivy, and SQLite. It will take 3 weeks to make and will be evaluated according to the criteria A, B, C, and D.
+
+## Creativity
+The app is called YasModo. It is a game of words between the name of the client and the application she uses every week, Komodo. Also because "modo" sounds like "mood" and "Yas" like "Yes" (YesMood).
+
+The colour palette for this project is tones pink and purple, with some variations, as these are the favourite colours of the client, and ones that produce a lot of peace on her.
+
 ## Test Plan
 | TEST                                              | DESCRIPTION                                                                  | PROCEDURE                                                                                                  | EXPECTED OUTPUT                                                                                                                    |
 |---------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +50,11 @@ After meeting with the client ans sending her an email (See Appendix B), we agre
 | File organisation review (non-functional)         | Are all files organised? Folders, files, etc                                 | Check Pycharm folder and delete files that have not been used for the project.                             | On the project folder all files should have user-friendly names. All files are organised inside the folder.                        |
 | Unit Test: Integration: whole login program       | Check whole code                                                             | Run the program and enter all inputs that a user would put.                                                | The program will not crash and will make its functions.                                                                            |
 
+**Table 1:** Test plan- showing the test plan for my application. The description, expected output, and procedure for each test is also shown.
+
+
 ## System Diagram
+**Figure 1**
 ![image](https://user-images.githubusercontent.com/89135778/224166933-f0d52d3b-e9b8-408a-a755-780d8bb3ef46.png)**Figure 1:** System diagram of my project
 Fig.1 is the System Diagram. It shows the brand and type of the computer, with its specifications and the Operative System is has. The program runs in Python 3.8 and uses different codes (project_unit3.py, project_untit3.kv). Then, these codes connect with a database of sql files (p3_database.db).
 
@@ -114,7 +124,7 @@ Fig. 6: Flow diagram of the Statistics class
 | 31      | Flow diagram                      | Make flow diagram of the Statistics class                                                                | 1h         | Mar 10                 | B         |
 
 
-**Table 1:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
+**Table 2:** Record of Task- showing the planning and working process of the project. All the steps are related to Planning, Solution Overview analysis and Development, and Functionality (criterias A, B C, and D). The target completion date and the time estimate for each task is also shown.
 
 # Criterion C
 ### Code
@@ -1031,6 +1041,9 @@ This is helping my client because using a SQLite database I am managing her prog
 
 ### Video
 https://drive.google.com/file/d/15uBFJJsWgiyDIDAHGMM9TPk85QTE450Q/view?usp=sharing
+
+### Ideas for further development
+Pending discover how to convert the Python and Kivy files into an exportable app to use in multiple devices.
 
 # APPENDIX
 ## A: Notes from First meeting - 10th February 2023
